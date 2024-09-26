@@ -1,0 +1,64 @@
+public class Main {
+ public static void main(String[] args) throws InvalidAgeException  {
+	 exception();
+	 verify(12);
+	 
+	 try {
+	
+		 int num = 25/0;
+		 System.out.println(num);
+		 verify(13);
+		 
+	 }
+	 catch( InvalidAgeException  p){
+		 System.out.println(p);
+	 }
+	 catch(ArithmeticException e) {
+		 System.out.println(e);
+    }
+	 
+	finally {
+		System.out.println("finally");
+	}
+		
+	 System.out.println("Rest of the code");
+ }
+ // user defined exception
+ public static void verify(int age) throws InvalidAgeException {
+	 if(age<18) {
+		throw new InvalidAgeException("Invalid age");
+	 }
+	 else {
+		 System.out.println("valid age");
+	 }
+ }
+
+public static void exception() {
+	Scanner sc = new Scanner(System.in);
+	try {
+		System.out.println("Enter first Number");
+		
+		int n1 = Integer.parseInt(sc.next());
+		System.out.println("Enter second Number");
+		int n2 = Integer.parseInt(sc.next());
+		System.out.println("Divide : " + n1/n2);
+		
+		
+	}catch(NumberFormatException e) {
+		System.out.println(e);
+	}
+	 catch(ArithmeticException e) {
+		 System.out.println(e);
+    }
+ }
+}
+
+ class InvalidAgeException extends Exception{
+
+	public InvalidAgeException(String message) {
+		super(message);
+		
+	}
+	 
+ 
+ }
